@@ -1,12 +1,10 @@
-(function($, document, window){
-	
-	$(document).ready(function(){
-
+(function ($, document, window) {
+	$(document).ready(function () {
 		// Cloning main navigation for mobile menu
 		$(".mobile-navigation").append($(".main-navigation .menu").clone());
 
-		// Mobile menu toggle 
-		$(".menu-toggle").click(function(){
+		// Mobile menu toggle
+		$(".menu-toggle").click(function () {
 			$(".mobile-navigation").slideToggle();
 		});
 
@@ -19,39 +17,37 @@
 			panY: true,
 			panX: true,
 			panDuration: 1.25,
-			resetPanOnMouseLeave: false
+			resetPanOnMouseLeave: false,
 		});
 
 		$(".testimonial-slider, .hero-slider").flexslider({
 			directionNav: false,
-			controlNav: true
+			controlNav: true,
 		});
 
-		if( $(".map").length ) {
-			$('.map').gmap3({
-				map: {
-					options: {
-						maxZoom: 14,
-						scrollwheel: false
-					}  
+		if ($(".map").length) {
+			$(".map").gmap3(
+				{
+					map: {
+						options: {
+							maxZoom: 14,
+							scrollwheel: false,
+						},
+					},
+					marker: {
+						address: "40 Sibley St, Detroit",
+						// options: {
+						// 	icon: new google.maps.MarkerImage(
+						// 		"images/map-marker.png",
+						// 		new google.maps.Size(43, 53, "px", "px")
+						// 	)
+						// }
+					},
 				},
-				marker:{
-					address: "40 Sibley St, Detroit",
-					// options: {
-					// 	icon: new google.maps.MarkerImage(
-					// 		"images/map-marker.png",
-					// 		new google.maps.Size(43, 53, "px", "px")
-					// 	)
-					// }
-				}
-			},
-			"autofit" );
-	    	
-	    }
+				"autofit"
+			);
+		}
 	});
 
-	$(window).load(function(){
-
-	});
-
+	$(window).load(function () {});
 })(jQuery, document, window);
